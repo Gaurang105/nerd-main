@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { Github } from 'lucide-react'
 
 const IMG_BG = 'https://www.figma.com/api/mcp/asset/fd216004-e594-4135-9487-006bc9afe078'
 const IMG_FG = 'https://www.figma.com/api/mcp/asset/c2c26aa8-6571-4589-a5c0-8340abd7afd3'
@@ -46,19 +46,24 @@ function NavLinks({ gap = 'clamp(20px, 3.89vw, 56px)', fontSize = NAV_SIZE }: { 
   )
 }
 
-function DownloadCTA({ fontSize = NAV_SIZE }: { fontSize?: string }) {
+function GithubCTA({ fontSize = NAV_SIZE }: { fontSize?: string }) {
   return (
-    <button className="group flex items-center gap-2 hover:gap-3 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 bg-primary rounded-full pl-4 pr-1 py-1 flex-shrink-0">
+    <a
+      href="https://github.com/Gaurang105/nerd"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-2 hover:gap-3 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 bg-primary rounded-full pl-4 pr-1 py-1 flex-shrink-0 no-underline"
+    >
       <span
         className="text-black font-normal whitespace-nowrap"
         style={{ fontFamily: HALYARD, fontSize, fontWeight: 400 }}
       >
-        Download Now
+        GitHub
       </span>
       <span className="bg-black rounded-full w-8 h-8 flex items-center justify-center group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
-        <ArrowRight className="w-3.5 h-3.5 text-primary" strokeWidth={1.5} />
+        <Github className="w-3.5 h-3.5 text-primary" strokeWidth={1.5} />
       </span>
-    </button>
+    </a>
   )
 }
 
@@ -157,7 +162,7 @@ export default function Hero() {
       >
         <NerdLogo height={22} />
         <NavLinks />
-        <DownloadCTA />
+        <GithubCTA />
       </div>
 
       {/* ── Glass morphism pill (scrolled, 32px from top) ── */}
@@ -183,7 +188,7 @@ export default function Hero() {
       >
         <NerdLogo height={18} />
         <NavLinks gap="20px" fontSize={PILL_SIZE} />
-        <DownloadCTA fontSize={PILL_SIZE} />
+        <GithubCTA fontSize={PILL_SIZE} />
       </div>
 
     </section>
